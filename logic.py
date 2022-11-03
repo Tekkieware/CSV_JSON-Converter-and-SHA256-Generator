@@ -11,7 +11,9 @@ def logic(input_file):
     with open(input_file, encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
     #looping through each row in the csv file
+        count = 0
         for row in reader:
+            count +=1
             #name and path to the output json for each row
             json_file_name = row['Filename']
             json_file_path = 'Output JSON Files/'
@@ -27,11 +29,21 @@ def logic(input_file):
             hash_data = {'Sha256': sha256}
             data.update(hash_data)
             file.close()
+            #creating the new csv file with the updated data
+            field_names = data.keys()
+            output_file_name = (input_file_name.split('.')[0]) + '.output.csv'
+            with open('Output CSV File/' + output_file_name, 'a') as f_object:
+                dictwriter_object = csv.DictWriter(f_object, fieldnames=field_names)
+                if count == 1:
+                    dictwriter_object.writeheader()
+                dictwriter_object.writerow(data)
+                # Close the file object
+                f_object.close()
             #appending the sha256 to each file
             file = open(full_file_path, 'w')
             file.write(json.dumps(data, indent=4))
             file.close()
-
+            
                 
             
                 
