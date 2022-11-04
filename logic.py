@@ -2,7 +2,7 @@ import csv, json, hashlib, os
 
 #appending the file part to the name provided
 input_file_path = 'Input CSV File/'
-input_file_name = 'NFT Naming csv - All Teams.csv'
+input_file_name = input('Enter the name of your CSV file(i.e filname.csv)\n')
 input_file = input_file_path + input_file_name
 
 
@@ -34,6 +34,7 @@ def logic(input_file):
             output_file_name = (input_file_name.split('.')[0]) + '.output.csv'
             with open('Output CSV File/' + output_file_name, 'a') as f_object:
                 dictwriter_object = csv.DictWriter(f_object, fieldnames=field_names)
+                #writing the csv file header on the first iteration
                 if count == 1:
                     dictwriter_object.writeheader()
                 dictwriter_object.writerow(data)
