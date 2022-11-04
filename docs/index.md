@@ -19,5 +19,5 @@ which will add empty keys to the JSON generated with this script.
   <li>You will be prompted to enter the name of your CSV file in the terminal, please enter it correctly e.g NFT Naming csv - All Teams.csv.</li>
   <li>Wait for the process to complete. </li>
   <li>You will find the output csv file in the Ouput CSV - Filename folder with the name Input file name.output.csv</li>
-  <li>You will find your output JSON files in the Output JSONs - Filename folder with each JSON filename corresponding to the filename in the input csv file.</li>
+  <li>You will find your output JSON files in the Output JSONs - Filename folder with each JSON named after the corresponding filename column in each row of the input csv file.</li>
  </ul>
