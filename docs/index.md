@@ -13,8 +13,11 @@ which will add empty keys to the JSON generated with this script.
 
 <h2>Follow These Steps To Use Script:</h2>
 <ul>
+  <li>Clone the repository</li>
   <li>Copy your CSV file into the Input CSV file folder.</li>
   <li>Run the logic.py python file.</li>
   <li>You will be prompted to enter the name of your CSV file in the terminal, please enter it correctly e.g NFT Naming csv - All Teams.csv.</li>
-  <li>Wait for the process to complete and you will find the output files in the Ouput CSV File and Output JSON Files folders.</li>
+  <li>Wait for the process to complete. </li>
+  <li>You will find the output csv file in the Ouput CSV - Filename folder with the name Input file name.output.csv</li>
+  <li>You will find your output JSON files in the Output JSONs - Filename folder with each JSON filename corresponding to the filename in the input csv file.</li>
  </ul>

@@ -14,20 +14,22 @@ def logic(input_file):
         count = 0
         for row in reader:
             count +=1
-            #making folders for output files
-            if not os.path.exists('Output JSON Files'):
-                os.makedirs('Output JSON Files')
-
-            if not os.path.exists('Output CSV File'):
-                os.makedirs('Output CSV File')
-            #name and path to the output json for each row
+            #name and path to the output json for each row and csv
             json_file_name = row['Filename']
-            json_file_path = 'Output JSON Files/'
+            file_name = input_file_name.split('.')[0]
+            json_file_path = 'Output JSONs - ' + file_name
+            output_csv_path = 'Output CSV - ' + file_name
+            #making folders for output files
+            if not os.path.exists(json_file_path):
+                os.makedirs(json_file_path)
+            
+            if not os.path.exists(output_csv_path):
+                os.makedirs(output_csv_path)
             #creating a json file for each row in the csv file
-            with open((json_file_path + json_file_name + '.json'), 'w', encoding='utf-8') as jsonfile:
+            with open((json_file_path + '/' + json_file_name + '.json'), 'w', encoding='utf-8') as jsonfile:
                 jsonfile.write(json.dumps(row, indent=4))
             #generating the sha256 for each json file
-            full_file_path = json_file_path + json_file_name + '.json'
+            full_file_path = json_file_path + '/' + json_file_name + '.json'
             sha256 = hashlib.sha256(open(full_file_path, 'rb').read()).hexdigest()
             #reading each json file data
             file = open(full_file_path, 'r')
@@ -38,7 +40,7 @@ def logic(input_file):
             #creating the new csv file with the updated data
             field_names = data.keys()
             output_file_name = (input_file_name.split('.')[0]) + '.output.csv'
-            with open('Output CSV File/' + output_file_name, 'a') as f_object:
+            with open(output_csv_path +'/' + output_file_name, 'a') as f_object:
                 dictwriter_object = csv.DictWriter(f_object, fieldnames=field_names)
                 #writing the csv file header on the first iteration
                 if count == 1:
