@@ -14,6 +14,12 @@ def logic(input_file):
         count = 0
         for row in reader:
             count +=1
+            #making folders for output files
+            if not os.path.exists('Output JSON Files'):
+                os.makedirs('Output JSON Files')
+
+            if not os.path.exists('Output CSV File'):
+                os.makedirs('Output CSV File')
             #name and path to the output json for each row
             json_file_name = row['Filename']
             json_file_path = 'Output JSON Files/'
