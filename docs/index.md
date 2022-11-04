@@ -8,7 +8,7 @@ appends the hash to each JSON and creates a new copy of the CSV file with a new 
 <b>Dependencies:</b> No external library needed.
 
 <h2>How To Use</h2>
-<b>Not Before</b>: Please clear all empty columns in the spreadsheet before generating the CSV file to avoid trailing commas 
+<b>Note Before</b>: Please clear all empty columns in the spreadsheet before generating the CSV file to avoid trailing commas 
 which will add empty keys to the JSON generated with this script.
 
 <h2>Follow These Steps To Use Script:</h2>
